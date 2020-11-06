@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3601.player.view.PlayerController">
+   <bottom>
+      <HBox fx:id="hBox" prefHeight="30.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="previousButton" mnemonicParsing="false" onMouseClicked="#handlePrevious" />
+            <Button fx:id="playButton" mnemonicParsing="false" onMouseClicked="#handlePlay" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onMouseClicked="#handleNext" />
+            <Slider fx:id="progressSlider" maxWidth="200.0" onMousePressed="#handleProgressPress" onMouseReleased="#handleProgressRelease" prefWidth="200.0" />
+            <Label fx:id="volumnLabel" onMouseClicked="#handleMute" />
+            <Slider fx:id="volumnSlider" maxWidth="200.0" onMouseDragged="#handleVolumn" prefWidth="100.0" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+         <effect>
+            <Glow level="0.6" />
+         </effect>
+      </HBox>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="219.0" prefWidth="600.0" styleClass="background" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Label fx:id="statusLabel" layoutX="12.0" layoutY="99.0" prefHeight="121.0" prefWidth="577.0" styleClass="label-header" text="TeamBlue" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="99.0" BorderPane.alignment="CENTER" />
+         </children>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </AnchorPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="import" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <ListView fx:id="playlist" prefHeight="200.0" prefWidth="200.0" styleClass="background" BorderPane.alignment="CENTER">
+         <effect>
+            <SepiaTone />
+         </effect></ListView>
+   </left>
+</BorderPane>
